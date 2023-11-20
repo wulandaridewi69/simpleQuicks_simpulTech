@@ -98,6 +98,14 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* chat box */}
+      <div className=''>
+      <svg xmlns="http://www.w3.org/2000/svg" width="734" height="737" viewBox="0 0 734 737" fill="none">
+        <path d="M0 5C0 2.23858 2.23858 0 5 0H729C731.761 0 734 2.23858 734 5V732C734 734.761 731.761 737 729 737H4.99999C2.23857 737 0 734.761 0 732V5Z" fill="white"/>
+      </svg>
+
+      </div>
     </main>
   )
 }
