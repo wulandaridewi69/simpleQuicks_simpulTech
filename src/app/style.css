@@ -1,0 +1,29 @@
+.black-bg {
+    width: 1635px;
+    height: 1022px;
+}
+
+.bg-quikc {    
+    display: flex;
+    gap: 26px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.bg-quikc .child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+.bg-quikc .logo {
+    background: #2F80ED;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+}
+.bg-quikc .task .text, .bg-quikc .inbox .text {
+    width: 31.386px;
+    height: 12.016px;
+    fill: var(--Gray-6, #F2F2F2);
+}

@@ -1,112 +1,102 @@
 import Image from 'next/image'
+import '../app/style.css'
+
+import Search from '../app/assets/search.png';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen flex-col items-center justify-between ">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1635" height="1022" viewBox="0 0 1635 1022" fill="none">
+        <path d="M0 0H1635V1022H0V0Z" fill="#333333" />
+      </svg>
+      <div className='absolute start-0'>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1637" height="58" viewBox="0 0 1637 58" fill="none">
+          <path d="M0 0H1637V58H0V0Z" fill="#4F4F4F" />
+        </svg>
+        <div className='relative inset-9 left-6'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7124 10.0629H11.4351L16 14.6369L14.6369 16L10.0629 11.4351V10.7124L9.81589 10.4563C8.77301 11.3528 7.4191 11.8925 5.94625 11.8925C2.66209 11.8925 0 9.23042 0 5.94625C0 2.66209 2.66209 0 5.94625 0C9.23042 0 11.8925 2.66209 11.8925 5.94625C11.8925 7.4191 11.3528 8.77301 10.4563 9.81589L10.7124 10.0629ZM1.82959 5.94554C1.82959 8.22342 3.66835 10.0622 5.94623 10.0622C8.2241 10.0622 10.0629 8.22342 10.0629 5.94554C10.0629 3.66767 8.2241 1.82891 5.94623 1.82891C3.66835 1.82891 1.82959 3.66767 1.82959 5.94554Z" fill="#F2F2F2" />
+          </svg>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <div className='bg-quikc'>
+        <div className='w-14 h-14 logo'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M31.4427 12.3359C32.3618 12.9486 32.6101 14.1904 31.9974 15.1094L24.737 26H35C35.7376 26 36.4153 26.406 36.7634 27.0563C37.1114 27.7066 37.0732 28.4957 36.6641 29.1094L27.3308 43.1094C26.7181 44.0285 25.4763 44.2768 24.5573 43.6641C23.6382 43.0514 23.3899 41.8097 24.0026 40.8906L31.263 30H21C20.2624 30 19.5847 29.5941 19.2367 28.9437C18.8886 28.2934 18.9268 27.5043 19.3359 26.8906L28.6692 12.8906C29.2819 11.9716 30.5237 11.7232 31.4427 12.3359Z" fill="white" />
+          </svg>
+        </div>
+        <div className='child'>
+          <div className='task'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="13" viewBox="0 0 33 13" fill="none" className='m-4'>
+              <path d="M9.94502 0.431999V2.2H6.46502V12H4.31302V2.2H0.817017V0.431999H9.94502Z" fill="#F2F2F2" />
+              <path d="M15.6755 12H14.7875C14.6008 12 14.4542 11.9733 14.3475 11.92C14.2409 11.8613 14.1608 11.7467 14.1075 11.576L13.9315 10.992C13.7235 11.1787 13.5182 11.344 13.3155 11.488C13.1182 11.6267 12.9129 11.744 12.6995 11.84C12.4862 11.936 12.2595 12.008 12.0195 12.056C11.7795 12.104 11.5128 12.128 11.2195 12.128C10.8729 12.128 10.5529 12.0827 10.2595 11.992C9.96618 11.896 9.71285 11.7547 9.49952 11.568C9.29152 11.3813 9.12885 11.1493 9.01152 10.872C8.89418 10.5947 8.83552 10.272 8.83552 9.904C8.83552 9.59467 8.91552 9.29067 9.07552 8.992C9.24085 8.688 9.51285 8.416 9.89152 8.176C10.2702 7.93067 10.7742 7.728 11.4035 7.568C12.0329 7.408 12.8142 7.31733 13.7475 7.296V6.816C13.7475 6.26667 13.6302 5.86133 13.3955 5.6C13.1662 5.33333 12.8302 5.2 12.3875 5.2C12.0675 5.2 11.8008 5.23733 11.5875 5.312C11.3742 5.38667 11.1875 5.472 11.0275 5.568C10.8729 5.65867 10.7289 5.74133 10.5955 5.816C10.4622 5.89067 10.3155 5.928 10.1555 5.928C10.0222 5.928 9.90752 5.89333 9.81152 5.824C9.71552 5.75467 9.63818 5.66933 9.57952 5.568L9.21952 4.936C10.1635 4.072 11.3022 3.64 12.6355 3.64C13.1155 3.64 13.5422 3.72 13.9155 3.88C14.2942 4.03467 14.6142 4.25333 14.8755 4.536C15.1369 4.81333 15.3342 5.14667 15.4675 5.536C15.6062 5.92533 15.6755 6.352 15.6755 6.816V12ZM11.8355 10.768C12.0382 10.768 12.2249 10.7493 12.3955 10.712C12.5662 10.6747 12.7262 10.6187 12.8755 10.544C13.0302 10.4693 13.1769 10.3787 13.3155 10.272C13.4595 10.16 13.6035 10.0293 13.7475 9.88V8.496C13.1715 8.52267 12.6889 8.57333 12.2995 8.648C11.9155 8.71733 11.6062 8.808 11.3715 8.92C11.1369 9.032 10.9689 9.16267 10.8675 9.312C10.7715 9.46133 10.7235 9.624 10.7235 9.8C10.7235 10.1467 10.8249 10.3947 11.0275 10.544C11.2355 10.6933 11.5049 10.768 11.8355 10.768Z" fill="#F2F2F2" />
+              <path d="M22.4905 5.392C22.4372 5.47733 22.3812 5.53867 22.3225 5.576C22.2639 5.608 22.1892 5.624 22.0985 5.624C22.0025 5.624 21.8985 5.59733 21.7865 5.544C21.6798 5.49067 21.5545 5.432 21.4105 5.368C21.2665 5.29867 21.1012 5.23733 20.9145 5.184C20.7332 5.13067 20.5172 5.104 20.2665 5.104C19.8772 5.104 19.5705 5.18667 19.3465 5.352C19.1225 5.51733 19.0105 5.73333 19.0105 6C19.0105 6.176 19.0665 6.32533 19.1785 6.448C19.2959 6.56533 19.4478 6.66933 19.6345 6.76C19.8265 6.85067 20.0425 6.93333 20.2825 7.008C20.5225 7.07733 20.7679 7.15467 21.0185 7.24C21.2692 7.32533 21.5145 7.424 21.7545 7.536C21.9945 7.64267 22.2079 7.78133 22.3945 7.952C22.5865 8.11733 22.7385 8.31733 22.8505 8.552C22.9679 8.78667 23.0265 9.06933 23.0265 9.4C23.0265 9.79467 22.9545 10.16 22.8105 10.496C22.6665 10.8267 22.4559 11.1147 22.1785 11.36C21.9012 11.6 21.5572 11.7893 21.1465 11.928C20.7412 12.0613 20.2745 12.128 19.7465 12.128C19.4639 12.128 19.1865 12.1013 18.9145 12.048C18.6479 12 18.3892 11.9307 18.1385 11.84C17.8932 11.7493 17.6639 11.6427 17.4505 11.52C17.2425 11.3973 17.0585 11.264 16.8985 11.12L17.3545 10.368C17.4132 10.2773 17.4825 10.208 17.5625 10.16C17.6425 10.112 17.7439 10.088 17.8665 10.088C17.9892 10.088 18.1038 10.1227 18.2105 10.192C18.3225 10.2613 18.4505 10.336 18.5945 10.416C18.7385 10.496 18.9065 10.5707 19.0985 10.64C19.2958 10.7093 19.5438 10.744 19.8425 10.744C20.0772 10.744 20.2772 10.7173 20.4425 10.664C20.6132 10.6053 20.7519 10.5307 20.8585 10.44C20.9705 10.3493 21.0505 10.2453 21.0985 10.128C21.1518 10.0053 21.1785 9.88 21.1785 9.752C21.1785 9.56 21.1199 9.40267 21.0025 9.28C20.8905 9.15733 20.7385 9.05067 20.5465 8.96C20.3599 8.86933 20.1438 8.78933 19.8985 8.72C19.6585 8.64533 19.4105 8.56533 19.1545 8.48C18.9039 8.39467 18.6558 8.296 18.4105 8.184C18.1705 8.06667 17.9545 7.92 17.7625 7.744C17.5759 7.568 17.4238 7.352 17.3065 7.096C17.1945 6.84 17.1385 6.53067 17.1385 6.168C17.1385 5.832 17.2052 5.512 17.3385 5.208C17.4719 4.904 17.6665 4.64 17.9225 4.416C18.1839 4.18667 18.5065 4.00533 18.8905 3.872C19.2799 3.73333 19.7279 3.664 20.2345 3.664C20.7999 3.664 21.3145 3.75733 21.7785 3.944C22.2425 4.13067 22.6292 4.376 22.9385 4.68L22.4905 5.392Z" fill="#F2F2F2" />
+              <path d="M26.6029 0.112V6.92H26.9709C27.1042 6.92 27.2082 6.90133 27.2829 6.864C27.3576 6.82667 27.4376 6.75733 27.5229 6.656L29.5629 4.136C29.6536 4.02933 29.7496 3.94667 29.8509 3.888C29.9522 3.824 30.0856 3.792 30.2509 3.792H32.0589L29.5069 6.84C29.4162 6.952 29.3229 7.056 29.2269 7.152C29.1309 7.24267 29.0269 7.32267 28.9149 7.392C29.0269 7.472 29.1256 7.56533 29.2109 7.672C29.2962 7.77867 29.3816 7.89333 29.4669 8.016L32.2029 12H30.4189C30.2642 12 30.1336 11.9733 30.0269 11.92C29.9202 11.8667 29.8242 11.776 29.7389 11.648L27.6509 8.536C27.5709 8.41333 27.4909 8.33333 27.4109 8.296C27.3309 8.25867 27.2109 8.24 27.0509 8.24H26.6029V12H24.6269V0.112H26.6029Z" fill="#F2F2F2" />
+            </svg>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+            <div className='flex'>
+              <div className='absolute'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" viewBox="0 0 26 20" fill="none" className='m-5'>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3.11114 0.666687H23.1111C24.3334 0.666687 25.3334 1.66669 25.3334 2.88891V17.3334C25.3334 18.5556 24.3334 19.5556 23.1111 19.5556H3.11114C1.88892 19.5556 0.888916 18.5556 0.888916 17.3334V2.88891C0.888916 1.66669 1.88892 0.666687 3.11114 0.666687ZM3.11114 2.88891V17.3334H12V2.88891H3.11114ZM23.1111 17.3334H14.2222V2.88891H23.1111V17.3334ZM22 6.7778H15.3334V8.44446H22V6.7778ZM15.3334 9.55558H22V11.2222H15.3334V9.55558ZM22 12.3334H15.3334V14H22V12.3334Z" fill="#F8B76B" />
+                </svg>
+              </div>
+              <div className='white'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none">
+                  <g filter="url(#filter0_d_1_553)">
+                    <path d="M64 30C64 46.5685 50.5685 60 34 60C17.4315 60 4 46.5685 4 30C4 13.4315 17.4315 0 34 0C50.5685 0 64 13.4315 64 30Z" fill="#F2F2F2" />
+                  </g>
+                  <defs>
+                    <filter id="filter0_d_1_553" x="0" y="0" width="68" height="68" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_553" />
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_553" result="shape" />
+                    </filter>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+          <div className='inbox'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="13" viewBox="0 0 40 13" fill="none" className='m-4'>
+              <path d="M2.34201 12H0.182007V0.431999H2.34201V12Z" fill="#F2F2F2" />
+              <path d="M4.83726 12V3.792H6.04526C6.30126 3.792 6.46926 3.912 6.54926 4.152L6.68526 4.8C6.85059 4.62933 7.02392 4.47467 7.20526 4.336C7.39192 4.19733 7.58659 4.07733 7.78926 3.976C7.99726 3.87467 8.21859 3.79733 8.45326 3.744C8.68793 3.69067 8.94392 3.664 9.22126 3.664C9.66926 3.664 10.0666 3.74133 10.4133 3.896C10.7599 4.04533 11.0479 4.25867 11.2773 4.536C11.5119 4.808 11.6879 5.136 11.8053 5.52C11.9279 5.89867 11.9893 6.31733 11.9893 6.776V12H10.0133V6.776C10.0133 6.27467 9.89593 5.888 9.66126 5.616C9.43193 5.33867 9.08526 5.2 8.62126 5.2C8.27992 5.2 7.95993 5.27733 7.66126 5.432C7.36259 5.58667 7.07992 5.79733 6.81326 6.064V12H4.83726Z" fill="#F2F2F2" />
+              <path d="M13.955 12V0.112H15.931V4.8C16.2563 4.45333 16.6243 4.17867 17.035 3.976C17.4457 3.768 17.9257 3.664 18.475 3.664C18.923 3.664 19.331 3.75733 19.699 3.944C20.0723 4.12533 20.3923 4.392 20.659 4.744C20.931 5.096 21.139 5.53067 21.283 6.048C21.4323 6.56533 21.507 7.16 21.507 7.832C21.507 8.44533 21.4243 9.01333 21.259 9.536C21.0937 10.0587 20.8563 10.512 20.547 10.896C20.243 11.28 19.8723 11.5813 19.435 11.8C19.003 12.0133 18.5177 12.12 17.979 12.12C17.7283 12.12 17.499 12.0933 17.291 12.04C17.083 11.992 16.8937 11.9227 16.723 11.832C16.5523 11.7413 16.3923 11.632 16.243 11.504C16.099 11.3707 15.9603 11.224 15.827 11.064L15.739 11.616C15.707 11.7547 15.651 11.8533 15.571 11.912C15.4963 11.9707 15.3923 12 15.259 12H13.955ZM17.795 5.2C17.3843 5.2 17.0323 5.288 16.739 5.464C16.451 5.63467 16.1817 5.87733 15.931 6.192V9.872C16.155 10.1493 16.3977 10.344 16.659 10.456C16.9257 10.5627 17.2137 10.616 17.523 10.616C17.8217 10.616 18.091 10.56 18.331 10.448C18.571 10.336 18.7737 10.1653 18.939 9.936C19.1097 9.70667 19.2403 9.41867 19.331 9.072C19.4217 8.72 19.467 8.30667 19.467 7.832C19.467 7.352 19.427 6.94667 19.347 6.616C19.2723 6.28 19.163 6.008 19.019 5.8C18.875 5.592 18.699 5.44 18.491 5.344C18.2883 5.248 18.0563 5.2 17.795 5.2Z" fill="#F2F2F2" />
+              <path d="M26.56 3.664C27.1733 3.664 27.728 3.76267 28.224 3.96C28.7253 4.15733 29.152 4.43733 29.504 4.8C29.856 5.16267 30.128 5.60533 30.32 6.128C30.512 6.65067 30.608 7.23467 30.608 7.88C30.608 8.53067 30.512 9.11733 30.32 9.64C30.128 10.1627 29.856 10.608 29.504 10.976C29.152 11.344 28.7253 11.6267 28.224 11.824C27.728 12.0213 27.1733 12.12 26.56 12.12C25.9467 12.12 25.3893 12.0213 24.888 11.824C24.3867 11.6267 23.9573 11.344 23.6 10.976C23.248 10.608 22.9733 10.1627 22.776 9.64C22.584 9.11733 22.488 8.53067 22.488 7.88C22.488 7.23467 22.584 6.65067 22.776 6.128C22.9733 5.60533 23.248 5.16267 23.6 4.8C23.9573 4.43733 24.3867 4.15733 24.888 3.96C25.3893 3.76267 25.9467 3.664 26.56 3.664ZM26.56 10.6C27.2427 10.6 27.7467 10.3707 28.072 9.912C28.4027 9.45333 28.568 8.78133 28.568 7.896C28.568 7.01067 28.4027 6.336 28.072 5.872C27.7467 5.408 27.2427 5.176 26.56 5.176C25.8667 5.176 25.3547 5.41067 25.024 5.88C24.6933 6.344 24.528 7.016 24.528 7.896C24.528 8.776 24.6933 9.448 25.024 9.912C25.3547 10.3707 25.8667 10.6 26.56 10.6Z" fill="#F2F2F2" />
+              <path d="M33.6094 7.768L30.9134 3.792H32.8174C32.9614 3.792 33.0681 3.81333 33.1374 3.856C33.2067 3.89333 33.2681 3.95733 33.3214 4.048L35.0414 6.792C35.068 6.70133 35.1 6.61067 35.1374 6.52C35.18 6.42933 35.2307 6.33867 35.2894 6.248L36.6734 4.088C36.7374 3.98667 36.8041 3.912 36.8734 3.864C36.9427 3.816 37.028 3.792 37.1294 3.792H38.9454L36.2414 7.68L39.0574 12H37.1534C37.0094 12 36.8921 11.9627 36.8014 11.888C36.716 11.8133 36.6441 11.728 36.5854 11.632L34.8414 8.776C34.7934 8.968 34.7267 9.128 34.6414 9.256L33.1054 11.632C33.0467 11.7227 32.9747 11.808 32.8894 11.888C32.804 11.9627 32.6974 12 32.5694 12H30.8014L33.6094 7.768Z" fill="#F2F2F2" />
+            </svg>
+            <div className='flex'>
+              <div className='absolute'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" className='m-5'>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M18.4443 3.11066H3.9999C3.38879 3.11066 2.88879 3.61066 2.88879 4.22177V19.7773L7.33324 15.3329H18.4443C19.0555 15.3329 19.5555 14.8329 19.5555 14.2218V4.22177C19.5555 3.61066 19.0555 3.11066 18.4443 3.11066ZM17.3332 5.3328V13.1106H6.41103L5.75547 13.7661L5.11103 14.4106V5.3328H17.3332ZM21.7777 7.55512H23.9999C24.611 7.55512 25.111 8.05512 25.111 8.66623V25.3329L20.6666 20.8885H8.44435C7.83324 20.8885 7.33324 20.3885 7.33324 19.7773V17.5551H21.7777V7.55512Z" fill="#8885FF" />
+                </svg>
+              </div>
+              <div className='white'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 68 68" fill="none">
+                  <g filter="url(#filter0_d_1_542)">
+                    <path d="M64 30C64 46.5685 50.5685 60 34 60C17.4315 60 4 46.5685 4 30C4 13.4315 17.4315 0 34 0C50.5685 0 64 13.4315 64 30Z" fill="#F2F2F2" />
+                  </g>
+                  <defs>
+                    <filter id="filter0_d_1_542" x="0" y="0" width="68" height="68" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_542" />
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_542" result="shape" />
+                    </filter>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   )
