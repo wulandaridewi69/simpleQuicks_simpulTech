@@ -1,3 +1,15 @@
+.background {
+    background-color: #43B78D;
+}
+.layoutBG {
+    color: #FFF;
+    text-align: center;
+    font-family: Hiragino Kaku Gothic StdN;
+    font-size: 190px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 91.4%; /* 173.66px */
+}
 main {
     background-color: #333;
     width: auto;
@@ -9,13 +21,13 @@ main {
 }
 
 .bg-quikc {    
-    display: flex;
+    /* display: flex; */
     gap: 26px;
     position: absolute;
     bottom: 0;
     right: 0;
     align-items: center;
-    background-color: #333;
+    /* background-color: #333; */
     width: auto;
     height: auto;
 }
@@ -23,7 +35,8 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 26px;
-    margin-right: 78px;
+    margin-right: 80px;
+    justify-content: flex-end;
 }
 .bg-quikc .logo {
     background: #2F80ED;
@@ -40,10 +53,11 @@ main {
 
 .chatBox {
     width: 700px;
-    height: 400px;
+    height: 440px;
     fill: #FFF;
     background-color:#FFF ;
     border-radius: 10px;
+    overflow-y: scroll;
 }
 .chatBox .miniSearch {
     display: flex;
@@ -73,6 +87,7 @@ main {
     display: flex;
     flex-wrap: nowrap;
     align-items: baseline;
+    position: relative;
 }
 .user .profile {
     display: flex;
@@ -174,7 +189,7 @@ textarea {
     background: #FFF;
     overflow: hidden;
  }
- button {
+ .createMessage button {
     display: flex;
     width: 76px;
     height: 40px;
@@ -190,4 +205,93 @@ textarea {
     display: flex;
     gap: 13px
  }
- 
+ .dropbtn {
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown p:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+  
+  /* ---------------------------------------------------------------task------------------------------------------------- */
+  button {
+    display: flex;
+    width: fit-content;
+    height: 40px;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: var(--Blue-1, #2F80ED);
+    color: #FFF;
+    font-size: 13px;
+  }
+  .myTask {
+    font-size: 13px;
+    width: fit-content;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 7px;
+    border-radius: 5px;
+    border: 1px solid var(--Gray-3, #828282);
+    background: #FFF;
+  }
+  .dates {
+    border: 1px solid var(--Gray-3, #828282);
+    width: fit-content;
+    font-size: 12px;
+    justify-content: space-evenly;
+    padding: 10px;
+    border-radius: 5px;
+    gap: 50px;
+  }
+  .taskDesc {
+    width: auto;
+    max-width: 85%;
+    text-align: justify;
+    font-size: 12px;
+  }
+  .titleTask {
+    width: auto;
+    max-width: 59%;
+    color: #4F4F4F;
+    font-weight:600;
+    font-size: 16px;
+  }
+  .timeTask p {
+    color: #EB5757;
+    font-size: 13px;
+  }
+  .done {
+    text-decoration: line-through;
+    color: #828282;
+    width: auto;
+    max-width: 59%;
+    font-weight:normal;
+    font-size: 16px;
+  }

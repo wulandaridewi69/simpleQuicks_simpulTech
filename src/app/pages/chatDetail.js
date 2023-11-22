@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import '../app/style.css'
+import '../style.css';
+import '../style.css';
+import Search from '../assets/search.png';
 
-import Search from '../app/assets/search.png';
+export default function MessageDetail() {
 
-export default function Home() {
   return (
     <main className="flex items-center justify-between bg-black">
       <div className='absolute start-0'>
@@ -42,7 +42,13 @@ export default function Home() {
               <div className='mb-11'>
                 <p className='youColor text-sm'>You</p>
                 <div className='flex'>
-                  <span>...</span>
+                  <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">...</button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
                   <div className='colorMe text-xs' >
                     <p className='message'>No worries it will be completed ASAP I've asking to him yesterday </p>
                     <p>19:32</p>
@@ -54,19 +60,31 @@ export default function Home() {
 
               <div className='mb-5'>
                 <p className='otherColor text-sm'>Mary Hilda</p>
-                <div className='flex'>                  
+                <div className='flex'>
                   <div className='colorOther text-xs' >
                     <p className='message'>Hello, Obaidullah, I will be your case advisor for case #029290. I have assigned some home work for you to fill. please keep up with the due dates. should you have any question. Thanks</p>
                     <p>19:32</p>
                   </div>
-                  <span>...</span>
+                  <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">...</button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className='mb-5'>
                 <p className='youColor text-sm'>You</p>
                 <div className='flex'>
-                  <span>...</span>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">...</button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
                   <div className='colorMe text-xs' >
                     <p className='message'>No worries it will be completed ASAP I've asking to him yesterday.  your case advisor for case #029290.</p>
                     <p>19:32</p>
@@ -76,12 +94,18 @@ export default function Home() {
 
               <div className='mb-11'>
                 <p className='otherColor text-sm'>Mary Hilda</p>
-                <div className='flex'>                  
+                <div className='flex'>
                   <div className='colorOther text-xs' >
                     <p className='message'>ok thanks Thanks</p>
                     <p>19:32</p>
                   </div>
-                  <span>...</span>
+                  <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">...</button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -89,19 +113,25 @@ export default function Home() {
 
               <div className='mb-11'>
                 <p className='otherColor text-sm'>Mary Hilda</p>
-                <div className='flex'>                  
+                <div className='flex'>
                   <div className='colorOther text-xs' >
                     <p className='message'>ok thanks Thanks</p>
                     <p>19:32</p>
                   </div>
-                  <span>...</span>
+                  <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">...</button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <p>Edit</p>
+                      <p>Delete</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
             </div>
 
             <div className='createMessage'>
-              <textarea placeholder='Type a new message' className='text-xs'/>
+              <textarea placeholder='Type a new message' className='text-xs' />
               <button>Send</button>
             </div>
 
