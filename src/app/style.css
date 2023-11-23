@@ -189,7 +189,7 @@ textarea {
     background: #FFF;
     overflow: hidden;
  }
- .createMessage button {
+ Button {
     display: flex;
     width: 76px;
     height: 40px;

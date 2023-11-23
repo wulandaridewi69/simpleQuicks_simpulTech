@@ -1,8 +1,68 @@
+import { useState, useEffect } from "react";
+
+import CardMessage from '../components/CardMessages';
 import '../style.css';
+import DetailMessage from '../pages/chatDetail';
 
 const MessageList = () => {
+
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [user, setUser] = useState('')
+    const [message, setMessage] = useState(false);
+    const [detail, setDetail] = useState('');
+
+    useEffect(() => {
+        fetchAllMessages();
+    }, []);
+
+    const showMessageDetail = (props) => {
+        console.log("showMessageDetail", props)
+        setMessage(!message)
+        setDetail(props)
+      }
+
+    const fetchAllMessages = async () => {
+        let requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("https://jsonplaceholder.typicode.com/posts", requestOptions)
+            .then(response => response.json())
+            .then((result) => {
+                let newResult = []
+                result.map((item) => {
+                    userId(item.userId);
+                    item.userDetail = user;
+                    newResult.push(item)
+                })
+                console.log('ini data', newResult);
+                setData(result);
+            })
+            .catch(error => console.log('error', error))
+            .finally(() => setLoading(false));
+    }
+
+    const userId = async (id) => {
+        let requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch(`https://jsonplaceholder.typicode.com/users/${id}`, requestOptions)
+            .then(response => response.json())
+            .then((result) => {
+                setUser(result)
+                return result
+            })
+            .catch(error => console.log('error', error))
+            .finally(() => setLoading(false));
+    }
+
     return (
         <>
+           {message ? <DetailMessage id={detail.id} title={detail.title}/> : <>
             <div className='chatBox'>
                 <div className='miniSearch'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="12" viewBox="0 0 48 12" fill="none">
@@ -17,160 +77,21 @@ const MessageList = () => {
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8.21143 7.54717H8.75345L12.1771 10.9777L11.1548 12L7.72429 8.57633V8.03431L7.53905 7.8422C6.75688 8.51458 5.74145 8.91938 4.63682 8.91938C2.17369 8.91938 0.177124 6.92281 0.177124 4.45969C0.177124 1.99657 2.17369 0 4.63682 0C7.09994 0 9.09651 1.99657 9.09651 4.45969C9.09651 5.56432 8.6917 6.57976 8.01932 7.36192L8.21143 7.54717ZM1.54933 4.4597C1.54933 6.16811 2.92841 7.54718 4.63681 7.54718C6.34522 7.54718 7.72429 6.16811 7.72429 4.4597C7.72429 2.7513 6.34522 1.37222 4.63681 1.37222C2.92841 1.37222 1.54933 2.7513 1.54933 4.4597Z" fill="#333333" />
                     </svg>
                 </div>
-            
 
-            <div className='overflow-x-hidden'>
-                <div className='lineBottom flex gap-8 1'>
-                    <div className='user flex'>
-                        <div className='profile'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                                <path d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z" fill="#E0E0E0" />
-                            </svg>
-                            <div className='iconUser'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3ZM10.5 6C10.5 5.175 9.825 4.5 9 4.5C8.175 4.5 7.5 5.175 7.5 6C7.5 6.825 8.175 7.5 9 7.5C9.825 7.5 10.5 6.825 10.5 6ZM13.5 13.5C13.35 12.9675 11.025 12 9 12C6.9825 12 4.6725 12.96 4.5 13.5H13.5ZM3 13.5C3 11.505 6.9975 10.5 9 10.5C11.0025 10.5 15 11.505 15 13.5V15H3V13.5Z" fill="black" fill-opacity="0.54" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div className='profile blue'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                                <path d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z" fill="#2F80ED" />
-                            </svg>
-                            <div className='iconUser'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3ZM10.5 6C10.5 5.175 9.825 4.5 9 4.5C8.175 4.5 7.5 5.175 7.5 6C7.5 6.825 8.175 7.5 9 7.5C9.825 7.5 10.5 6.825 10.5 6ZM13.5 13.5C13.35 12.9675 11.025 12 9 12C6.9825 12 4.6725 12.96 4.5 13.5H13.5ZM3 13.5C3 11.505 6.9975 10.5 9 10.5C11.0025 10.5 15 11.505 15 13.5V15H3V13.5Z" fill="white" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='desc'>
-                        <div class="h-[34.24px] justify-start items-baseline gap-4 inline-flex">
-                            <p className='font-bold title'>109220 - Naturalization</p>
-                            <p className='font-normal time flex text-xs'>January 1, 2021 <span> 19:10</span></p>
-                        </div>
-                        <div className='text-sm fillText mt-2.5'>
-                            <p className='font-bold'>Cameron Philips :</p>
-                            <div className=' flex items-baseline justify-between'>
-                                <p className='font-normal'>Please check this out!</p>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                    <path d="M10 5C10 7.76142 7.76142 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.76142 0 10 2.23858 10 5Z" fill="#EB5757" />
-                                </svg>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div className='lineBottom flex gap-8 2'>
-                    <div className='user flex'>
-                        <div className='profile'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                                <path d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z" fill="#E0E0E0" />
-                            </svg>
-                            <div className='iconUser'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3ZM10.5 6C10.5 5.175 9.825 4.5 9 4.5C8.175 4.5 7.5 5.175 7.5 6C7.5 6.825 8.175 7.5 9 7.5C9.825 7.5 10.5 6.825 10.5 6ZM13.5 13.5C13.35 12.9675 11.025 12 9 12C6.9825 12 4.6725 12.96 4.5 13.5H13.5ZM3 13.5C3 11.505 6.9975 10.5 9 10.5C11.0025 10.5 15 11.505 15 13.5V15H3V13.5Z" fill="black" fill-opacity="0.54" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div className='profile blue'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                                <path d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z" fill="#2F80ED" />
-                            </svg>
-                            <div className='iconUser'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3ZM10.5 6C10.5 5.175 9.825 4.5 9 4.5C8.175 4.5 7.5 5.175 7.5 6C7.5 6.825 8.175 7.5 9 7.5C9.825 7.5 10.5 6.825 10.5 6ZM13.5 13.5C13.35 12.9675 11.025 12 9 12C6.9825 12 4.6725 12.96 4.5 13.5H13.5ZM3 13.5C3 11.505 6.9975 10.5 9 10.5C11.0025 10.5 15 11.505 15 13.5V15H3V13.5Z" fill="white" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='desc'>
-                        <div class="h-[34.24px] justify-start items-baseline gap-4 inline-flex">
-                            <p className='font-bold title'>Jeannette Moraima Guaman Chamba (Hutto I-589) [Hutto Follow Up - Brief Service]</p>
-                            <p className='font-normal time text-xs'>02/06/2021 <span> 10:45</span></p>
-                        </div>
-                        <div className='text-sm fillText mt-2.5'>
-                            <p className='font-bold'>Hellen :</p>
-                            <p className='font-normal'>Hey, please read</p>
-                        </div>
-
-                    </div>
-                </div>
-                <div className='lineBottom flex gap-8 3'>
-                    <div className='user flex'>
-                        <div className='profile'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                                <path d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z" fill="#E0E0E0" />
-                            </svg>
-                            <div className='iconUser'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3ZM10.5 6C10.5 5.175 9.825 4.5 9 4.5C8.175 4.5 7.5 5.175 7.5 6C7.5 6.825 8.175 7.5 9 7.5C9.825 7.5 10.5 6.825 10.5 6ZM13.5 13.5C13.35 12.9675 11.025 12 9 12C6.9825 12 4.6725 12.96 4.5 13.5H13.5ZM3 13.5C3 11.505 6.9975 10.5 9 10.5C11.0025 10.5 15 11.505 15 13.5V15H3V13.5Z" fill="black" fill-opacity="0.54" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div className='profile blue'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                                <path d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z" fill="#2F80ED" />
-                            </svg>
-                            <div className='iconUser'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3ZM10.5 6C10.5 5.175 9.825 4.5 9 4.5C8.175 4.5 7.5 5.175 7.5 6C7.5 6.825 8.175 7.5 9 7.5C9.825 7.5 10.5 6.825 10.5 6ZM13.5 13.5C13.35 12.9675 11.025 12 9 12C6.9825 12 4.6725 12.96 4.5 13.5H13.5ZM3 13.5C3 11.505 6.9975 10.5 9 10.5C11.0025 10.5 15 11.505 15 13.5V15H3V13.5Z" fill="white" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='desc'>
-                        <div class="h-[34.24px] justify-start items-baseline gap-4 inline-flex">
-                            <p className='font-bold title'>8405 - Diana SALAZAR MUNGUIA</p>
-                            <p className='font-normal time text-xs'>01/06/2021 <span> 12:19</span></p>
-                        </div>
-                        <div className='text-sm fillText mt-2.5'>
-                            <p className='font-bold'>Cameron Philips :</p>
-                            <p className='font-normal'>I understand your initial concerns and thats very valid, Elizabeth. But you ... </p>
-                        </div>
-
-                    </div>
-                </div>
-                <div className='lineBottom flex gap-8 4'>
-                    <div className='user flex'>
-                        <div className='profile'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                                <path d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z" fill="#E0E0E0" />
-                            </svg>
-                            <div className='iconUser'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3ZM10.5 6C10.5 5.175 9.825 4.5 9 4.5C8.175 4.5 7.5 5.175 7.5 6C7.5 6.825 8.175 7.5 9 7.5C9.825 7.5 10.5 6.825 10.5 6ZM13.5 13.5C13.35 12.9675 11.025 12 9 12C6.9825 12 4.6725 12.96 4.5 13.5H13.5ZM3 13.5C3 11.505 6.9975 10.5 9 10.5C11.0025 10.5 15 11.505 15 13.5V15H3V13.5Z" fill="black" fill-opacity="0.54" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div className='profile blue'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                                <path d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z" fill="#2F80ED" />
-                            </svg>
-                            <div className='iconUser'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3C7.3425 3 6 4.3425 6 6C6 7.6575 7.3425 9 9 9C10.6575 9 12 7.6575 12 6C12 4.3425 10.6575 3 9 3ZM10.5 6C10.5 5.175 9.825 4.5 9 4.5C8.175 4.5 7.5 5.175 7.5 6C7.5 6.825 8.175 7.5 9 7.5C9.825 7.5 10.5 6.825 10.5 6ZM13.5 13.5C13.35 12.9675 11.025 12 9 12C6.9825 12 4.6725 12.96 4.5 13.5H13.5ZM3 13.5C3 11.505 6.9975 10.5 9 10.5C11.0025 10.5 15 11.505 15 13.5V15H3V13.5Z" fill="white" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='desc'>
-                        <div class="h-[34.24px] justify-start gap-4 inline-flex items-baseline">
-                            <p className='font-bold title'>FaztVisa Support</p>
-                            <p className='font-normal time text-xs flex'>01/06/2021 <span> 12:19</span></p>
-                        </div>
-                        <div className='text-sm fillText mt-2.5'>
-                            <p className='font-bold'></p>
-                            <p className='font-normal'>Hey there! Welcome to your inbox.</p>
-                        </div>
-
-                    </div>
+                <div>
+                    {data.map((item) => {
+                        return <CardMessage
+                            key={item.userId}
+                            id={item.id}
+                            title={item.title}
+                            body={item.body}
+                            name={item.name}
+                            onClick={showMessageDetail}
+                        />
+                    })};                    
                 </div>
             </div>
-            </div>
+            </>}
         </>
     )
 }
