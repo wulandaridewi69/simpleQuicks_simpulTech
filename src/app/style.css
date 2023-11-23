@@ -1,10 +1,11 @@
-.background {
-    background-color: #43B78D;
-}
 .off {
     position: fixed;
     right: 0%;
     opacity: 0;
+}
+.header {
+    top: 0;
+    position: absolute;
 }
 .on {
     position: relative;
@@ -17,7 +18,13 @@
     font-size: 190px;
     font-style: normal;
     font-weight: 900;
-    line-height: 91.4%; /* 173.66px */
+    line-height: 91.4%;
+    background-color: #43B78D;
+    height: 611px;
+}
+.layoutBG p {
+    position: relative;
+    top: 115px;
 }
 main {
     background-color: #333;
@@ -30,13 +37,11 @@ main {
 }
 
 .bg-quikc {    
-    /* display: flex; */
     gap: 26px;
     position: absolute;
     bottom: 0;
     right: 0;
     align-items: center;
-    /* background-color: #333; */
     width: auto;
     height: auto;
 }

@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <div className="bg-black">
+        <div className="bg-black header">
             <div className='absolute start-0'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="1637" height="58" viewBox="0 0 1637 58" fill="none">
                     <path d="M0 0H1637V58H0V0Z" fill="#4F4F4F" />

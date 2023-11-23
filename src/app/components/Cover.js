@@ -2,9 +2,9 @@ import '../style.css';
 
 const Cover = () => {
     return (
-        <>
-        <p className='layoutBG'>Simple<br/>Quicks</p>
-        </>
+        <div className='layoutBG'>
+        <p >Simple<br/>Quicks</p>
+        </div>
     )
 }
 

@@ -3,6 +3,7 @@ import './globals.css'
 
 import Header from '../app/components/Header';
 import Footer from './components/Footer';
+import Cover from './components/Cover';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,7 @@ export default function RootLayout({ children }) {
       <link rel="icon" href="../app/assets/sq_logo.png"/>
       </head> */}
       <Header />
-      <body className={`background ${inter.className}`}>{children}</body>
+      <body className={inter.className}><Cover/></body>
       <Footer />
     </html>
   )
