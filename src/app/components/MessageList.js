@@ -37,8 +37,6 @@ const MessageList = () => {
                     item.userDetail = user;
                     newResult.push(item)
                 })
-                console.log('ini data', newResult);
-                setData(result);
             })
             .catch(error => console.log('error', error))
             .finally(() => setLoading(false));

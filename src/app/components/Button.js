@@ -1,14 +1,13 @@
 import '../style.css';
 
-function Button({ id, label, className, loading, onClick }) {
+const Button = (props) => {
     return (
             <button
-                id={id}
-                className={className}
-                onClick={onClick}
-                disabled={loading}
+                className={props.className}
+                onClick={props.onClick}
+                disabled={props.loading}
             >
-                {label}
+                {props.label}
             </button>
     );
 }

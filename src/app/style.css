@@ -1,6 +1,15 @@
 .background {
     background-color: #43B78D;
 }
+.off {
+    position: fixed;
+    right: 0%;
+    opacity: 0;
+}
+.on {
+    position: relative;
+    opacity: 1;
+}
 .layoutBG {
     color: #FFF;
     text-align: center;
@@ -189,7 +198,7 @@ textarea {
     background: #FFF;
     overflow: hidden;
  }
- Button {
+ button {
     display: flex;
     width: 76px;
     height: 40px;
@@ -276,9 +285,12 @@ textarea {
     text-align: justify;
     font-size: 12px;
   }
+  .rotate {
+    transform: rotate(180deg);
+    transition: .3s;
+  }
   .titleTask {
     width: auto;
-    max-width: 59%;
     color: #4F4F4F;
     font-weight:600;
     font-size: 16px;
@@ -291,7 +303,6 @@ textarea {
     text-decoration: line-through;
     color: #828282;
     width: auto;
-    max-width: 59%;
     font-weight:normal;
     font-size: 16px;
   }
