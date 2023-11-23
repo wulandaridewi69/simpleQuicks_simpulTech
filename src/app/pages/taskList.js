@@ -1,13 +1,22 @@
 import { useState, useEffect } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 import '../style.css';
-import Button from '../components/Button';
 import CardToDo from "../components/CardToDo";
+import PopUp from "../components/PopUpTask";
 
 const TaskList = () => {
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [myTask, setMyTask] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+
+  const showMyTask = () => {
+    console.log('showMyTask', myTask)
+    setMyTask(!myTask)
+  }
 
   useEffect(() => {
     getAllList();
@@ -30,15 +39,26 @@ const TaskList = () => {
 
   return (
     <div>
+      {myTask && <>
+        <div className='dropdown'>
+          {data.map((item) => {
+                return <PopUp
+                  key={item.userId}
+                  id={item.id}
+                  title={item.title}
+                />
+              })}
+        </div>
+      </>}
       <div className='task'>
         <div className='chatBox'>
-          <div className='grid grid-cols-2'>
-            <div className='flex gap-2 m-auto myTask'>My Tasks
-              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-                <path d="M14.5979 6.91248L10.7729 10.7291L6.94795 6.91248L5.77295 8.08748L10.7729 13.0875L15.7729 8.08748L14.5979 6.91248Z" fill="#4F4F4F" />
-              </svg>
+          <div className='grid grid-cols-2 mt-5'>         
+            <div className='flex gap-2 m-auto myTask' onMouseEnter={showMyTask} onMouseLeave={showMyTask}>My Tasks
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M6.175 13.0875L10 9.27086L13.825 13.0875L15 11.9125L10 6.91253L5 11.9125L6.175 13.0875Z" fill="#4F4F4F" />
+              </svg>              
             </div>
-            <Button>New Task</Button>
+            <button className='m-auto newTask'>New Task</button>
           </div>
 
           <div>
@@ -48,6 +68,7 @@ const TaskList = () => {
                 id={item.id}
                 title={item.title}
                 completed={item.completed}
+                myTask={myTask}
               />
             })}
           </div>
@@ -57,9 +78,9 @@ const TaskList = () => {
             <div className='grid grid-cols-3'>
               <div className='flex gap-2.5 col-span-2 mb-4'>
                 <input id="link-checkbox" type="checkbox" value="" className="w-4 h-3/5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                <textarea placeholder='Type a task title' className='text-xs w-8/12' />
+                <textarea placeholder='Type a task title' className='text-xs w-8/12 p-2.5' />
               </div>
-              <div className='flex items-center h-2/5 justify-end timeTask mb-4'>
+              <div className='flex items-center h-2/5 justify-end timeTask mb-4 gap-2.5 p-2.5'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M6.175 13.0875L10 9.27086L13.825 13.0875L15 11.9125L10 6.91253L5 11.9125L6.175 13.0875Z" fill="#4F4F4F" />
                 </svg>
@@ -74,7 +95,7 @@ const TaskList = () => {
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99181 1.66663C5.39181 1.66663 1.66681 5.39996 1.66681 9.99996C1.66681 14.6 5.39181 18.3333 9.99181 18.3333C14.6001 18.3333 18.3335 14.6 18.3335 9.99996C18.3335 5.39996 14.6001 1.66663 9.99181 1.66663ZM10.0003 16.6666C6.31697 16.6666 3.33364 13.6833 3.33364 9.99996C3.33364 6.31662 6.31697 3.33329 10.0003 3.33329C13.6836 3.33329 16.667 6.31662 16.667 9.99996C16.667 13.6833 13.6836 16.6666 10.0003 16.6666ZM9.16681 5.83329H10.4168V10.2083L14.1668 12.4333L13.5418 13.4583L9.16681 10.8333V5.83329Z" fill="#2F80ED" />
                 </svg>
                 <div className='flex dates'>
-                  Set date
+                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3333 1.99996H12.6667V0.666626H11.3333V1.99996H4.66668V0.666626H3.33334V1.99996H2.66668C1.93334 1.99996 1.33334 2.59996 1.33334 3.33329V14C1.33334 14.7333 1.93334 15.3333 2.66668 15.3333H13.3333C14.0667 15.3333 14.6667 14.7333 14.6667 14V3.33329C14.6667 2.59996 14.0667 1.99996 13.3333 1.99996ZM13.3333 14H2.66668V6.66663H13.3333V14ZM2.66668 5.33329H13.3333V3.33329H2.66668V5.33329Z" fill="#4F4F4F" />
                   </svg>

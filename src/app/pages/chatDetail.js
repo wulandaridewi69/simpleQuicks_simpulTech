@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import '../style.css';
 import Input from '../components/Input';
-import Button from '../components/Button';
 
 const MessageDetail = (props) => {
 
@@ -127,7 +126,7 @@ const MessageDetail = (props) => {
 
             <div className='createMessage'>
               <Input className='text-xs' placeholder='Type a new message' onChange={(e) => handleCreate(e)}/>
-              <Button onClick={(e) => createMessage()}>Send</Button>
+              <button onClick={(e) => createMessage()}>Send</button>
             </div>
 
           </div>

@@ -246,7 +246,7 @@ textarea {
   .show {display: block;}
   
   /* ---------------------------------------------------------------task------------------------------------------------- */
-  button {
+  .newTask {
     display: flex;
     width: fit-content;
     height: 40px;
@@ -258,6 +258,33 @@ textarea {
     background: var(--Blue-1, #2F80ED);
     color: #FFF;
     font-size: 13px;
+  }
+  .delete {
+    display: flex;
+    width: fit-content;
+    height: 40px;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color:  #EB5757;
+    font-size: 13px;
+    border: 1px solid #828282;
+    float: right;
+    margin-top: -20px;
+  }
+  .styleDrop {
+    border-bottom: 1px solid #828282;
+    padding: 10px;    
+  }
+  .dropdown {
+    top: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #828282;
+    overflow-y: scroll;
+    height: 80%;
   }
   .myTask {
     font-size: 13px;
@@ -274,10 +301,69 @@ textarea {
     border: 1px solid var(--Gray-3, #828282);
     width: fit-content;
     font-size: 12px;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 10px;
     border-radius: 5px;
-    gap: 50px;
+  }
+  .tag {
+    color: #4F4F4F;
+    display: inline-flex;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: #E9F3FF;
+    font-size: 12px;
+  }
+  .tagOrange {
+    color: #4F4F4F;
+    display: inline-flex;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: #FDCFA4;
+    font-size: 12px;
+  }
+  .mark {
+    border: 1px solid #828282;
+    background: #FFF;;
+  }
+  .mark p {
+    color: #4F4F4F;
+    display: inline-flex;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  .mark p.a {
+    background-color: #E5F1FF;
+  }
+  .mark p.b {
+    background-color: #FDCFA4;
+  }
+  .mark p.c {
+    background-color: #F9E9C3;
+  }
+  .mark p.d {
+    background-color: #AFEBDB;
+  }
+  .mark p.e {
+    background-color: #CBF1C2;
+  }
+  .mark p.f {
+    background-color: #CFCEF9;
+  }
+  .mark p.g {
+    background-color: #F9E0FD;
+  }
+  .mark p.h {
+    background-color: #9DD0ED;
   }
   .taskDesc {
     width: auto;
@@ -287,6 +373,10 @@ textarea {
   }
   .rotate {
     transform: rotate(180deg);
+    transition: .3s;
+  }
+  .unrotate {
+    transform: rotate(0deg);
     transition: .3s;
   }
   .titleTask {
