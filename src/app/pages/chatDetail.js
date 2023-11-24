@@ -10,6 +10,7 @@ const MessageDetail = (props) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [create, setCreate] = useState('');
+  const [shareReplay, setShareReplay] = useState(false);
 
   useEffect(() => {
     detailMessage(props.id);
@@ -19,6 +20,14 @@ const MessageDetail = (props) => {
     const inputCreate = e.target.value;
     setCreate(inputCreate);
   };
+
+  const showShareReplay = () => {
+    setShareReplay(!shareReplay)
+  }
+
+  const showChatList = () => {
+    setShareReplay(!shareReplay)
+  }
 
   const detailMessage = (id) => {
     let requestOptions = {
@@ -59,6 +68,7 @@ const MessageDetail = (props) => {
       .then(response => response.json())
       .then((result) => {
         setCreate(result)
+        alert(`data created: ${result.body}`)
         return result
       })
       .catch(error => console.log('error', error));
@@ -73,10 +83,10 @@ const MessageDetail = (props) => {
           <div className='inbox'>
             <div className='chatBox'>
 
-              <div className='headerTitle lineDetail flex gap-8'>
-                <div className='desc flex items-center'>
+              <div className='headerTitle lineDetail flex gap-8 ml-8 pb-8'>
+                <div className='desc flex items-center gap-5 close'>
                   <div className='flex items-center gap-4'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <svg onClick={props.onBack} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" fill="#333333" />
                     </svg>
                     <div class="grid">
@@ -84,11 +94,12 @@ const MessageDetail = (props) => {
                       <p className='font-normal text-xs'>{data.length} Participants</p>
                     </div>
                   </div>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <svg onClick={props.onBack} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#333333" />
                   </svg>
                 </div>
               </div>
+
 
               <div className='m-7'>
                 {/* <div className='mb-11'>
@@ -108,7 +119,11 @@ const MessageDetail = (props) => {
                 </div>
               </div> */}
 
-                <h5 className='oldMessage'><span>Today June 09, 2021</span></h5>
+
+                <div className='oldMessage'>
+                  <p className='position'><BasicDatePicker label="Basic date picker" /></p>
+                </div>
+
                 {data.map((item) => {
                   return <div className='mb-5'>
                     <p className='otherColor text-sm'>{item.name}</p>
@@ -117,21 +132,24 @@ const MessageDetail = (props) => {
                         <p className='message'>{item.body}</p>
                         <BasicDatePicker label="Basic date picker" />
                       </div>
-                      <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn">...</button>
-                        <div id="myDropdown" class="dropdown-content">
-                          <p>Edit</p>
-                          <p>Delete</p>
-                        </div>
+                      <div className="optionMenu">
+                        <button onClick={showShareReplay} className={shareReplay ? 'block' : 'hidden'}>...</button>
+                        {shareReplay && <>
+                          <div className="grid">
+                            <p className='shareReplay'>Share</p>
+                            <p className='shareReplay'>Replay</p>
+                          </div>
+                        </>}
+
                       </div>
                     </div>
                   </div>
                 })}
               </div>
 
-              <div className='createMessage'>
-                <Input className='text-xs' placeholder='Type a new message' onChange={(e) => handleCreate(e)} />
-                <button onClick={(e) => createMessage()}>Send</button>
+              <div className='createMessage ml-6 mr-6 mb-9'>
+                <Input className='text-xs p-2.5' placeholder='Type a new message' onChange={(e) => handleCreate(e)} />
+                <button className='sendChat' onClick={createMessage}>Send</button>
               </div>
 
             </div>
