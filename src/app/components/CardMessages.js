@@ -36,17 +36,17 @@ const Card = (props) => {
             </div>
 
             <div className='desc'>
-                <div class="h-[34.24px] justify-start items-baseline gap-4 inline-flex">
+                <div class="h-[34.24px] justify-start items-baseline gap-4 inline-flex min-w-full">
                     <p className='font-bold title'>{props.title}</p>
                     <BasicDatePicker label="Basic date picker" />
                 </div>
                 <div className='text-sm fillText'>
-                    <p className='font-bold'>{props.name} :</p>
+                    <p className='font-bold'>Anonymus :</p>
                     <div className=' flex items-baseline justify-between'>
                         <p className='font-normal'>{props.body}</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
                             <path d="M10 5C10 7.76142 7.76142 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.76142 0 10 2.23858 10 5Z" fill="#EB5757" />
-                        </svg>
+                        </svg> */}
                     </div>
                 </div>
 

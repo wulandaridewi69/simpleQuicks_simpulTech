@@ -13,10 +13,16 @@ const TaskList = () => {
   const [loading, setLoading] = useState(false);
   const [myTask, setMyTask] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [newTask, setNewTask] = useState(false);
 
   const showMyTask = () => {
     console.log('showMyTask', myTask)
     setMyTask(!myTask)
+  }
+
+  const showNewTask = () => {
+    console.log('showMyTask', myTask)
+    setNewTask(!newTask)
   }
 
   useEffect(() => {
@@ -62,8 +68,8 @@ const TaskList = () => {
                   <path d="M6.175 13.0875L10 9.27086L13.825 13.0875L15 11.9125L10 6.91253L5 11.9125L6.175 13.0875Z" fill="#4F4F4F" />
                 </svg>
               </div>
-              <button className='m-auto newTask'>New Task</button>
-            </div>
+              <button onClick={showNewTask} className='m-auto newTask'>New Task</button>
+            </div> 
 
             <div>
               {data.map((item) => {
@@ -78,7 +84,7 @@ const TaskList = () => {
             </div>
 
             {/* create task */}
-            <div className='m-7'>
+            <div className={newTask ? 'block m-7' : 'hidden'}>
               <div className='grid grid-cols-3'>
                 <div className='flex gap-2.5 col-span-2 mb-4'>
                   <input id="link-checkbox" type="checkbox" value="" className="w-4 h-3/5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />

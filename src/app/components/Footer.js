@@ -25,6 +25,10 @@ const Footer = () => {
     }
 
     const showIcon = () => {
+        if (icon == true) {
+            setMessage(false)
+            setTodo(false)
+        }
         setIcon(!icon)
         console.log('showIcon', icon)
     }
