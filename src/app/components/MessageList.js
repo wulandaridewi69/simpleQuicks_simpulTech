@@ -66,7 +66,7 @@ const MessageList = () => {
     } else {
         return (
             <>
-                {messageList ? <DetailMessage id={detail.id} title={detail.title} onBack={showMessageDetail}/> : <>
+                {messageList ? <DetailMessage key={detail.id} id={detail.id} title={detail.title} onBack={showMessageDetail}/> : <>
                     <div className='chatBox'>
                         <div className='miniSearch'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="12" viewBox="0 0 48 12" fill="none">
