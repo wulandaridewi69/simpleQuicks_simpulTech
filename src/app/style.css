@@ -11,6 +11,9 @@
     position: relative;
     opacity: 1;
 }
+.lineBottom:first {
+  border-top: 0;
+}
 .layoutBG {
     color: #FFF;
     text-align: center;
@@ -166,17 +169,20 @@ main {
     align-items: baseline;
     gap: 10px;
 }
-h5 {
+.oldMessage { 
     width: 100%; 
     text-align: center; 
     border-bottom: 1px solid #000; 
     line-height: 0.1em;
     margin: 10px 0 20px; 
  }  
- .oldMessage span, .newMessage span { 
+ .oldMessage .position { 
      background:#fff; 
      padding:0 10px; 
      font-size: 13px;
+     position: absolute;
+    left: 40%;
+    margin-top: -7px;
      font-weight: 500;
  }
  .newMessage {
@@ -214,6 +220,7 @@ textarea {
     border-radius: 5px;
     background: var(--Blue-1, #2F80ED);
     color: #FFF;
+    cursor: pointer;
  }
  .createMessage {
     display: flex;
@@ -263,6 +270,7 @@ textarea {
     background: var(--Blue-1, #2F80ED);
     color: #FFF;
     font-size: 13px;
+    cursor: pointer;
   }
   .delete {
     display: flex;
@@ -277,6 +285,23 @@ textarea {
     border: 1px solid #828282;
     float: right;
     margin-top: -20px;
+    cursor: pointer;
+  }
+  .shareReplay {
+    width: fit-content;
+    height: 40px;    
+    justify-content: center;
+    align-items: center;    
+    color:  #2F80ED;
+    font-size: 13px;    
+    float: right;
+    border-radius: 3px;
+    padding: 8px 14px;
+    border: 1px solid #828282;     
+    height: auto;
+    width: -webkit-fill-available;
+    text-align: center;
+    cursor: pointer;
   }
   .styleDrop {
     border-bottom: 1px solid #828282;

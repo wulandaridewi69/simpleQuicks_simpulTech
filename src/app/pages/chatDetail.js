@@ -10,6 +10,7 @@ const MessageDetail = (props) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [create, setCreate] = useState('');
+  const [shareReplay, setShareReplay] = useState(false);
 
   useEffect(() => {
     detailMessage(props.id);
@@ -19,6 +20,10 @@ const MessageDetail = (props) => {
     const inputCreate = e.target.value;
     setCreate(inputCreate);
   };
+
+  const showShareReplay = () => {
+    setShareReplay(!shareReplay)
+  }
 
   const detailMessage = (id) => {
     let requestOptions = {
@@ -90,6 +95,7 @@ const MessageDetail = (props) => {
                 </div>
               </div>
 
+
               <div className='m-7'>
                 {/* <div className='mb-11'>
                 <p className='youColor text-sm'>You</p>
@@ -108,7 +114,11 @@ const MessageDetail = (props) => {
                 </div>
               </div> */}
 
-                <h5 className='oldMessage'><span>Today June 09, 2021</span></h5>
+
+                <div className='oldMessage'>
+                  <p className='position'><BasicDatePicker label="Basic date picker" /></p>
+                </div>
+
                 {data.map((item) => {
                   return <div className='mb-5'>
                     <p className='otherColor text-sm'>{item.name}</p>
@@ -117,12 +127,15 @@ const MessageDetail = (props) => {
                         <p className='message'>{item.body}</p>
                         <BasicDatePicker label="Basic date picker" />
                       </div>
-                      <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn">...</button>
-                        <div id="myDropdown" class="dropdown-content">
-                          <p>Edit</p>
-                          <p>Delete</p>
-                        </div>
+                      <div className="optionMenu">
+                        <button onClick={showShareReplay} className={shareReplay ? 'block' : 'none'}>...</button>
+                        {shareReplay && <>
+                          <div className="grid">
+                            <p className='shareReplay'>Share</p>
+                            <p className='shareReplay'>Replay</p>
+                          </div>
+                        </>}
+
                       </div>
                     </div>
                   </div>

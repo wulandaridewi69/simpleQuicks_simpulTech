@@ -10,7 +10,7 @@ const MessageList = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState('')
-    const [message, setMessage] = useState(false);
+    const [messageList, setMessageList] = useState(false);
     const [detail, setDetail] = useState('');
 
     useEffect(() => {
@@ -18,12 +18,12 @@ const MessageList = () => {
     }, []);
 
     const showMessageDetail = (props) => {
-        console.log("showMessageDetail", props)
-        setMessage(!message)
+        setMessageList(!messageList)
         setDetail(props)
+        console.log("showMessageDetail", props)
     }
 
-    const fetchAllMessages = async () => {
+    const fetchAllMessages = () => {
         let requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -38,12 +38,13 @@ const MessageList = () => {
                     item.userDetail = user;
                     newResult.push(item)
                 })
+                setData(newResult)
             })
             .catch(error => console.log('error', error))
             .finally(() => setLoading(false));
     }
 
-    const userId = async (id) => {
+    const userId = (id) => {
         let requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -52,6 +53,7 @@ const MessageList = () => {
         fetch(`https://jsonplaceholder.typicode.com/users/${id}`, requestOptions)
             .then(response => response.json())
             .then((result) => {
+                console.log("RES", result)
                 setUser(result)
                 return result
             })
@@ -64,7 +66,7 @@ const MessageList = () => {
     } else {
         return (
             <>
-                {message ? <DetailMessage id={detail.id} title={detail.title} /> : <>
+                {messageList ? <DetailMessage id={detail.id} title={detail.title} /> : <>
                     <div className='chatBox'>
                         <div className='miniSearch'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="12" viewBox="0 0 48 12" fill="none">

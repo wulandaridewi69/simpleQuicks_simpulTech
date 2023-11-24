@@ -15,18 +15,18 @@ const Footer = () => {
     const [icon, setIcon] = useState(false);
 
     const showMessage = () => {
-        console.log("showMessage", message)
         setMessage(!message)
+        console.log("showMessage", message)
     }
 
     const showTodo = () => {
-        console.log("showTodo", todo)
         setTodo(!todo)
+        console.log("showTodo", todo)
     }
 
     const showIcon = () => {
-        console.log('showIcon', icon)
         setIcon(!icon)
+        console.log('showIcon', icon)
     }
 
     return (

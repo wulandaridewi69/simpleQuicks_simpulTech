@@ -1,6 +1,13 @@
+import { useState } from 'react';
+
 import '../style.css';
+import BasicDatePicker from "../components/Date";
 
 const Card = (props) => {
+
+    const [newInfo, setNewInfo] = useState(false);
+
+
 
     return (
         <>
@@ -31,7 +38,7 @@ const Card = (props) => {
             <div className='desc'>
                 <div class="h-[34.24px] justify-start items-baseline gap-4 inline-flex">
                     <p className='font-bold title'>{props.title}</p>
-                    <p className='font-normal time flex text-xs'>01/01/2021 <span> 19:10</span></p>
+                    <BasicDatePicker label="Basic date picker" />
                 </div>
                 <div className='text-sm fillText'>
                     <p className='font-bold'>{props.name} :</p>
