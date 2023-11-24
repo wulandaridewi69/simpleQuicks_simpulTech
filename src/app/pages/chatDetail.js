@@ -125,7 +125,7 @@ const MessageDetail = (props) => {
                 </div>
 
                 {data.map((item) => {
-                  return <div className='mb-5'>
+                  return <div className='mb-5' key={item.id}>
                     <p className='otherColor text-sm'>{item.name}</p>
                     <div className='flex'>
                       <div className='colorOther text-xs' >
